@@ -1,4 +1,5 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { Global } from "@emotion/react";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -6,7 +7,13 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({
-  config,
+  colors: {
+    background: "#F6DCB7",
+  },
+  fonts: {
+    grotesk: `"Space Grotesk", sans-serif`,
+    highman: `"Highman Trial", sans-serif`,
+  },
 });
 
 export default theme;
