@@ -1,4 +1,5 @@
-import { Box, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Text, Textarea } from "@chakra-ui/react";
+import axios from "axios";
 import React from "react";
 import PromptType from "../types";
 
@@ -7,6 +8,14 @@ type Props = {
 };
 
 const PromptMain: React.FC<Props> = ({ type }) => {
+
+  const generate = async () => {
+    const { data } = await axios.post(`/api/generate`, { prompt, type })
+    console.log(data)
+  }
+
+  const [prompt, setPrompt] = React.useState("")
+
   return (
     <Box px="7.5rem">
       <Text fontFamily="highman" fontSize="5.25rem" color="#308CF8">
@@ -32,7 +41,8 @@ const PromptMain: React.FC<Props> = ({ type }) => {
           "SAY IT WITH A SMILE BUT MEAN IT LIKE AN INSULT"}
       </Text>
 
-      <Textarea border="3px" borderColor="black" variant="filled" />
+      <Textarea border="3px" borderColor="black" onChange={e => { setPrompt(e.target.value) }} variant="filled" />
+      <Button onClick={generate} >Click Me</Button>
     </Box>
   );
 };
