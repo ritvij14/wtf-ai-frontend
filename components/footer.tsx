@@ -6,7 +6,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <Flex mt="3.125rem" mb="1.25rem" mx="9%" alignItems="center">
+    <Flex pt="3.125rem" pb="1.25rem" px="9%" alignItems="center">
       <Text
         fontFamily="grotesk"
         fontWeight="700"

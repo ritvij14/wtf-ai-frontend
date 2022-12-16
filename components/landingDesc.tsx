@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Button, Flex, Text, Wrap } from "@chakra-ui/react";
 import PromptCard from "./promptCard";
 import { BsArrowRight } from "react-icons/bs";
+import PromptType from "../types";
 
 const LandingDesc = () => {
   const options = [
@@ -9,45 +10,51 @@ const LandingDesc = () => {
       color: "FFD503",
       desc: "A perfect comeback for every A##h%e out there",
       emoji: "🤬",
-      type: "COMEBACKS",
+      type: PromptType.comeback,
     },
     {
       color: "F78166",
       desc: "Nothing helps better in life than a terrible advice",
       emoji: "🫤",
-      type: "TERRIBLE ADVICE",
+      type: PromptType.advice,
     },
     {
       color: "F480E5",
       desc: 'Stop being a boomer and finally "GET" a joke!',
       emoji: "🧐",
-      type: "EXPLAIN A JOKE",
+      type: PromptType.joke,
     },
     {
       color: "8AEC80",
       desc: "You suck at a lot of things, ever wondered why?",
       emoji: "🥶",
-      type: "WHY DO YOU SUCK AT...?",
+      type: PromptType.you_suck,
     },
     {
       color: "C4D4F8",
       desc: "A perfect way to stop a BOOOOORING chat!",
       emoji: "😶‍🌫️",
-      type: "HOW TO END A CONVERSATION",
+      type: PromptType.end_convo,
     },
     {
       color: "E3EC80",
       desc: "HOW TO ASK SOMEONE TO F#@K OFF, POLITELY? IS IT EVEN POSSIBLE?!",
       emoji: "😤",
-      type: "INSULT IN A COMPLIMENT",
+      type: PromptType.insult,
     },
   ];
   return (
-    <Box mx="10%" mt="9%" display="flex" flexDirection="column">
-      <Text fontFamily="highman" fontSize="5.25rem" color="#308CF8">
+    <Box mt="9%" display="flex" flexDirection="column">
+      <Text
+        mx="10%"
+        fontFamily="highman"
+        fontSize="5.25rem"
+        color="#308CF8"
+        lineHeight="5.775rem"
+      >
         what all you can do?
       </Text>
-      <Wrap spacing="3rem" pb="3rem">
+      <Wrap spacing="3rem" px="10%" py="3rem">
         {options.map((option) => (
           <PromptCard
             key={option.desc.length}

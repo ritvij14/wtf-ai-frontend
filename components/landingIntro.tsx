@@ -5,6 +5,7 @@ import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import PromptCard from "./promptCard";
 import Marquee from "react-fast-marquee";
+import PromptType from "../types";
 
 const LandingIntro = () => {
   return (
@@ -84,7 +85,7 @@ const LandingIntro = () => {
             color="#FFD503"
             desc="Throw your best insult at me, and be prepared to be destroyed."
             emoji="🤬"
-            type="COMEBACKS"
+            type={PromptType.comeback}
           />
         </Box>
         <Box position="absolute" right="20%">
@@ -92,7 +93,7 @@ const LandingIntro = () => {
             color="#F78166"
             desc="Can't stop texting my ex, what do I do?"
             emoji="🫤"
-            type="TERRIBLE ADVICE"
+            type={PromptType.advice}
           />
         </Box>
         <Box position="absolute" top="32%" right="10%">
@@ -100,10 +101,18 @@ const LandingIntro = () => {
             color="#F480E5"
             desc="Feeling dumb for not getting a joke?"
             emoji="🧐"
-            type="EXPLAIN A JOKE"
+            type={PromptType.joke}
           />
         </Box>
-        <Box w="64rem" position="absolute" top="50%" left="14%">
+        <Box
+          w="65rem"
+          border="4px"
+          borderColor="#308CF8"
+          mt="-0.5%"
+          fontFamily="grotesk"
+          textTransform="uppercase"
+          alignSelf="center"
+        >
           <Marquee gradient={false} speed={100}>
             Why always win, when you lose with AI? ✶ Why always win, when you
             lose with AI?✶ Why always win, when you lose with AI?✶ Why always
