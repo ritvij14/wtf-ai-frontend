@@ -8,13 +8,12 @@ type Props = {
 };
 
 const PromptMain: React.FC<Props> = ({ type }) => {
-
   const generate = async () => {
-    const { data } = await axios.post(`/api/generate`, { prompt, type })
-    console.log(data)
-  }
+    const { data } = await axios.post(`/api/generate`, { prompt, type });
+    console.log(data);
+  };
 
-  const [prompt, setPrompt] = React.useState("")
+  const [prompt, setPrompt] = React.useState("");
 
   return (
     <Box px="7.5rem">
@@ -41,8 +40,15 @@ const PromptMain: React.FC<Props> = ({ type }) => {
           "SAY IT WITH A SMILE BUT MEAN IT LIKE AN INSULT"}
       </Text>
 
-      <Textarea border="3px" borderColor="black" onChange={e => { setPrompt(e.target.value) }} variant="filled" />
-      <Button onClick={generate} >Click Me</Button>
+      <Textarea
+        border="3px"
+        borderColor="black"
+        onChange={(e) => {
+          setPrompt(e.target.value);
+        }}
+        variant="filled"
+      />
+      <Button onClick={generate}>Click Me</Button>
     </Box>
   );
 };
