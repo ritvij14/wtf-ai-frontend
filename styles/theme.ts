@@ -1,12 +1,18 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { mode, Styles } from "@chakra-ui/theme-tools";
 import { Global } from "@emotion/react";
 
-const config: ThemeConfig = {
-  initialColorMode: "dark",
-  useSystemColorMode: true,
+const styles: Styles = {
+  global: (props) => ({
+    body: {
+      bg: mode("#F6DCB7", "#F6DCB7")(props),
+      overflow: "scroll",
+    },
+  }),
 };
 
 const theme = extendTheme({
+  styles,
   colors: {
     background: "#F6DCB7",
   },
