@@ -6,14 +6,22 @@ import "@fontsource/space-grotesk/700.css";
 import PromptCard from "./promptCard";
 import Marquee from "react-fast-marquee";
 import PromptType from "../types";
+import Link from "next/link";
+import { signIn, useSession } from "next-auth/client";
 
 const LandingIntro = () => {
+  const data = useSession();
+
+  console.log(data);
+
   return (
     <Box mx="6%" h="100%">
       <Flex mx="3%" alignItems="center" color="#308CF8">
-        <Text fontFamily="highman" fontSize="3.5rem">
-          WTF AI
-        </Text>
+        <Link href="/">
+          <Text fontFamily="highman" fontSize="3.5rem">
+            WTF AI
+          </Text>
+        </Link>
         <Spacer />
         <Text fontFamily="grotesk" fontWeight="400" fontSize="1.25rem">
           what all you can do&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,6 +63,7 @@ const LandingIntro = () => {
             mb="1.125rem"
             alignSelf="center"
             mr="2.5rem"
+            color="white"
             backgroundColor="#308CF8"
             borderRadius="4px"
             px="3.125rem"
@@ -62,10 +71,15 @@ const LandingIntro = () => {
             border="2px"
             borderColor="black"
             boxShadow="4px 5px #000"
+            onClick={() => signIn()}
+            _hover={{
+              color: "#308CF8",
+              backgroundColor: "white",
+            }}
           >
             <Flex alignItems="center">
-              <FaTwitter color="white" size="1.5rem" />
-              <Text fontFamily="highman" fontSize="2rem" color="white" mr="4px">
+              <FaTwitter size="1.5rem" />
+              <Text fontFamily="highman" fontSize="2rem" ml="0.5rem">
                 Sign up now!
               </Text>
             </Flex>
@@ -115,8 +129,8 @@ const LandingIntro = () => {
         >
           <Marquee gradient={false} speed={100}>
             Why always win, when you lose with AI? ✶ Why always win, when you
-            lose with AI?✶ Why always win, when you lose with AI?✶ Why always
-            win, when you lose with AI?
+            lose with AI? ✶ Why always win, when you lose with AI? ✶ Why always
+            win, when you lose with AI? ✶&nbsp;
           </Marquee>
         </Box>
       </Box>

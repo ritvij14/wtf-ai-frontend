@@ -6,7 +6,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <Flex pt="3.125rem" pb="1.25rem" px="9%" alignItems="center">
+    <Flex
+      pt="3.125rem"
+      pb="1.25rem"
+      px="9%"
+      alignItems="center"
+      flexDir={{ base: "column", sm: "row" }}
+    >
       <Text
         fontFamily="grotesk"
         fontWeight="700"

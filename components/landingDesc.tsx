@@ -74,13 +74,18 @@ const LandingDesc = () => {
         py="1.5rem"
         border="2px"
         borderColor="black"
+        color="white"
+        _hover={{
+          color: "#308CF8",
+          backgroundColor: "white",
+        }}
         boxShadow="4px 5px #000"
       >
         <Flex alignItems="center">
-          <Text fontFamily="highman" fontSize="2rem" color="white" mr="4px">
+          <Text fontFamily="highman" fontSize="2rem" mr="4px">
             Try it now
           </Text>
-          <BsArrowRight size="1.5rem" color="white" />
+          <BsArrowRight size="1.5rem" />
         </Flex>
       </Button>
     </Box>

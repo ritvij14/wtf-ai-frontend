@@ -15,7 +15,7 @@ const PromptCard: React.FC<Props> = ({ emoji, type, desc, color }) => {
   return (
     <Link href={{ pathname: "/prompt", query: { type: PromptType[type] } }}>
       <Flex
-        w="21rem"
+        maxW="21rem"
         minH="9.3rem"
         py="0.875rem"
         px="1rem"
