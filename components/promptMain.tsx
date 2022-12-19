@@ -1,18 +1,11 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Spacer,
-  Text,
-  Textarea,
-  Wrap,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Textarea, Wrap } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import PromptType from "../types";
 import PromptCard from "./promptCard";
+import { TbEdit } from "react-icons/tb";
 
 type Props = {
   type: String;
@@ -60,8 +53,11 @@ const PromptMain: React.FC<Props> = ({ type }) => {
     >
       <Text
         fontFamily="highman"
-        fontSize={response == "" ? { base: "4rem", md: "5.25rem" } : "2.25rem"}
+        fontSize={
+          response == "" ? { base: "3.5rem", md: "5.25rem" } : "2.25rem"
+        }
         color="#308CF8"
+        lineHeight={{ base: "4.15rem", md: "6rem" }}
       >
         {type == PromptType[PromptType.comeback] && "COMEBACK"}
         {type == PromptType[PromptType.advice] && "TERRIBLE ADVICE"}
@@ -72,15 +68,29 @@ const PromptMain: React.FC<Props> = ({ type }) => {
         {type == PromptType[PromptType.insult] && "INSULT IN A COMPLIMENT"}
       </Text>
       {response != "" && (
-        <Text mt="0" fontFamily="highman" fontSize="2rem" color="black">
-          {prompt}
-        </Text>
+        <Flex>
+          <Text mr="1rem" fontFamily="highman" fontSize="2rem" color="black">
+            {prompt}
+          </Text>
+          <TbEdit
+            size="1.75rem"
+            style={{
+              alignSelf: "center",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setResponse("");
+              setPrompt(prompt);
+            }}
+          />
+        </Flex>
       )}
       <Text
         mt={response == "" ? "1.5rem" : "0"}
         fontFamily="highman"
         fontSize="2rem"
         color="black"
+        lineHeight="2rem"
       >
         {type == PromptType[PromptType.comeback] &&
           (response == ""
@@ -142,12 +152,7 @@ const PromptMain: React.FC<Props> = ({ type }) => {
           backgroundColor: "white",
         }}
         onClick={() => {
-          if (response == "") {
-            generate();
-          } else {
-            setResponse("");
-            setPrompt("");
-          }
+          generate();
         }}
       >
         {response == "" ? "Generate" : "Try Again"}

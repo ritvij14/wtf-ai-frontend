@@ -6,7 +6,7 @@ const PromptHeader = () => {
   return (
     <Flex mx="3%" alignItems="center" color="#308CF8">
       <Link href="/">
-        <Text fontFamily="highman" fontSize="3.5rem">
+        <Text fontFamily="highman" fontSize={{ base: "2.5rem", lg: "3.5rem" }}>
           WTF AI
         </Text>
       </Link>
