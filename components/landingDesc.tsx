@@ -3,6 +3,7 @@ import { Box, Button, Flex, Text, Wrap } from "@chakra-ui/react";
 import PromptCard from "./promptCard";
 import { BsArrowRight } from "react-icons/bs";
 import PromptType from "../types";
+import { useRouter } from "next/router";
 
 const LandingDesc = () => {
   const options = [
@@ -43,12 +44,16 @@ const LandingDesc = () => {
       type: PromptType.insult,
     },
   ];
+
+  const router = useRouter();
+
   return (
     <Box mt="9%" display="flex" flexDirection="column">
       <Text
-        mx="10%"
+        mx={{ base: "6%", md: "10%" }}
         fontFamily="highman"
-        fontSize="5.25rem"
+        fontSize={{ base: "2.75rem", lg: "5.25rem" }}
+        letterSpacing="-0.04em"
         color="#308CF8"
         lineHeight="5.775rem"
       >
@@ -80,6 +85,9 @@ const LandingDesc = () => {
           backgroundColor: "white",
         }}
         boxShadow="4px 5px #000"
+        onClick={() => {
+          router.push("/prompt?type=comeback");
+        }}
       >
         <Flex alignItems="center">
           <Text fontFamily="highman" fontSize="2rem" mr="4px">

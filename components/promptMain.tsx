@@ -60,7 +60,7 @@ const PromptMain: React.FC<Props> = ({ type }) => {
     >
       <Text
         fontFamily="highman"
-        fontSize={response == "" ? "5.25rem" : "2.25rem"}
+        fontSize={response == "" ? { base: "4rem", md: "5.25rem" } : "2.25rem"}
         color="#308CF8"
       >
         {type == PromptType[PromptType.comeback] && "COMEBACK"}

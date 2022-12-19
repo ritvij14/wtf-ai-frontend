@@ -1,29 +1,29 @@
 import { Box, Button, Flex, Image, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
-import { FaTwitter } from "react-icons/fa";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import PromptCard from "./promptCard";
 import Marquee from "react-fast-marquee";
 import PromptType from "../types";
 import Link from "next/link";
-import { signIn, useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 const LandingIntro = () => {
-  const data = useSession();
-
-  console.log(data);
+  const router = useRouter();
 
   return (
     <Box mx="6%" h="100%">
       <Flex mx="3%" alignItems="center" color="#308CF8">
         <Link href="/">
-          <Text fontFamily="highman" fontSize="3.5rem">
+          <Text
+            fontFamily="highman"
+            fontSize={{ base: "2.5rem", lg: "3.5rem" }}
+          >
             WTF AI
           </Text>
         </Link>
         <Spacer />
-        <Text fontFamily="grotesk" fontWeight="400" fontSize="1.25rem">
+        {/* <Text fontFamily="grotesk" fontWeight="400" fontSize="1.25rem">
           what all you can do&nbsp;&nbsp;&nbsp;&nbsp;
         </Text>
         <Text fontFamily="grotesk" fontWeight="700" fontSize="1.25rem" as="u">
@@ -31,7 +31,7 @@ const LandingIntro = () => {
         </Text>
         <Text fontFamily="grotesk" fontWeight="700" fontSize="1.25rem">
           /login
-        </Text>
+        </Text> */}
       </Flex>
       <Box display="flex" flexDir="column">
         <Image
@@ -42,7 +42,7 @@ const LandingIntro = () => {
         />
         <Box
           position="absolute"
-          top="27%"
+          top={{ base: "11%", sm: "13%", md: "20%", lg: "22%", xl: "27%" }}
           left="50%"
           transform="translate(-50%, -50%)"
           display="flex"
@@ -50,37 +50,48 @@ const LandingIntro = () => {
         >
           <Text
             fontFamily="highman"
-            fontSize="4.625rem"
+            fontSize={{
+              base: "1.75rem",
+              sm: "2rem",
+              md: "3rem",
+              xl: "4.625rem",
+            }}
             color="#308CF8"
             textAlign="center"
-            w="37.25rem"
-            lineHeight="5rem"
+            maxW="37.25rem"
+            minW="17rem"
+            lineHeight={{ base: "2.25rem", xl: "5rem" }}
           >
             Let AI take care of dumb things you say & do in life
           </Text>
           <Button
-            mt="1.5rem"
+            mt={{ base: "0", md: "1.5rem" }}
             mb="1.125rem"
+            mr={{ base: "0", lg: "2.5rem" }}
             alignSelf="center"
-            mr="2.5rem"
             color="white"
             backgroundColor="#308CF8"
             borderRadius="4px"
-            px="3.125rem"
-            py="1.5rem"
+            px={{ base: "2rem", md: "3.125rem" }}
+            py={{ base: "1rem", md: "2rem" }}
             border="2px"
             borderColor="black"
             boxShadow="4px 5px #000"
-            onClick={() => signIn()}
+            onClick={() => {
+              router.push("/prompt?type=comeback");
+            }}
             _hover={{
               color: "#308CF8",
               backgroundColor: "white",
             }}
           >
             <Flex alignItems="center">
-              <FaTwitter size="1.5rem" />
-              <Text fontFamily="highman" fontSize="2rem" ml="0.5rem">
-                Sign up now!
+              {/* <FaTwitter size="1.5rem" /> */}
+              <Text
+                fontFamily="highman"
+                fontSize={{ base: "1.5rem", md: "2rem" }}
+              >
+                TRY IT NOW!
               </Text>
             </Flex>
           </Button>
@@ -90,11 +101,16 @@ const LandingIntro = () => {
             fontWeight="400"
             alignSelf="center"
             color="black"
+            visibility={{ base: "hidden", lg: "visible" }}
           >
             This will make your life fun :{")"}
           </Text>
         </Box>
-        <Box position="absolute" top="28%">
+        <Box
+          position="absolute"
+          top="28%"
+          visibility={{ base: "hidden", xl: "visible" }}
+        >
           <PromptCard
             color="#FFD503"
             desc="Throw your best insult at me, and be prepared to be destroyed."
@@ -102,7 +118,11 @@ const LandingIntro = () => {
             type={PromptType.comeback}
           />
         </Box>
-        <Box position="absolute" right="20%">
+        <Box
+          position="absolute"
+          right="20%"
+          visibility={{ base: "hidden", xl: "visible" }}
+        >
           <PromptCard
             color="#F78166"
             desc="Can't stop texting my ex, what do I do?"
@@ -110,7 +130,12 @@ const LandingIntro = () => {
             type={PromptType.advice}
           />
         </Box>
-        <Box position="absolute" top="32%" right="10%">
+        <Box
+          position="absolute"
+          top="32%"
+          right="10%"
+          visibility={{ base: "hidden", xl: "visible" }}
+        >
           <PromptCard
             color="#F480E5"
             desc="Feeling dumb for not getting a joke?"
@@ -119,7 +144,7 @@ const LandingIntro = () => {
           />
         </Box>
         <Box
-          w="65rem"
+          maxW="65rem"
           border="4px"
           borderColor="#308CF8"
           mt="-0.5%"
