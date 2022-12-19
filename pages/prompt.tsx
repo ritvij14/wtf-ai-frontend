@@ -5,6 +5,8 @@ import Footer from "../components/footer";
 import PromptHeader from "../components/promptHeader";
 import PromptMain from "../components/promptMain";
 import PromptType from "../types";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PromptPage = () => {
   const router = useRouter();
@@ -75,6 +77,7 @@ const PromptPage = () => {
       }
     >
       <PromptHeader />
+      <ToastContainer />
       <PromptMain
         type={data["type"]?.toString() || "comeback"}
         options={sentOptions}

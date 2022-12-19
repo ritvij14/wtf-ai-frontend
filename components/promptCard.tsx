@@ -4,15 +4,17 @@ import "@fontsource/space-grotesk/700.css";
 import Link from "next/link";
 import PromptType from "../types";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 type Props = {
   emoji: String;
   type: String;
   desc: String;
   color: `#${string}`;
+  loading: boolean;
 };
 
-const PromptCard: React.FC<Props> = ({ emoji, type, desc, color }) => {
+const PromptCard: React.FC<Props> = ({ emoji, type, desc, color, loading }) => {
   const router = useRouter();
   return (
     <Flex
@@ -31,7 +33,20 @@ const PromptCard: React.FC<Props> = ({ emoji, type, desc, color }) => {
         transform: "scale(1.1)",
       }}
       onClick={() => {
-        router.replace(`/prompt?type=${type}`);
+        if (loading) {
+          toast.error("Please wait, generating prompt...", {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          router.replace(`/prompt?type=${type}`);
+        }
       }}
     >
       <Box

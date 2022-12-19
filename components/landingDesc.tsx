@@ -67,6 +67,7 @@ const LandingDesc = () => {
             desc={option.desc}
             emoji={option.emoji}
             type={PromptType[option.type]}
+            loading={false}
           />
         ))}
       </Wrap>

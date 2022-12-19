@@ -116,6 +116,7 @@ const LandingIntro = () => {
             desc="Throw your best insult at me, and be prepared to be destroyed."
             emoji="🤬"
             type={PromptType[PromptType.comeback]}
+            loading={false}
           />
         </Box>
         <Box
@@ -128,11 +129,12 @@ const LandingIntro = () => {
             desc="Can't stop texting my ex, what do I do?"
             emoji="🫤"
             type={PromptType[PromptType.advice]}
+            loading={false}
           />
         </Box>
         <Box
           position="absolute"
-          top="32%"
+          top="26%"
           right="10%"
           visibility={{ base: "hidden", xl: "visible" }}
         >
@@ -141,6 +143,7 @@ const LandingIntro = () => {
             desc="Feeling dumb for not getting a joke?"
             emoji="🧐"
             type={PromptType[PromptType.joke]}
+            loading={false}
           />
         </Box>
         <Box

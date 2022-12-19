@@ -1,11 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Button, Flex, Text, Textarea, Wrap } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import PromptType from "../types";
 import PromptCard from "./promptCard";
 import { TbEdit } from "react-icons/tb";
+import autosize from "autosize";
 
 type Props = {
   type: String;
@@ -29,6 +31,14 @@ const PromptMain: React.FC<Props> = ({ type, options }) => {
     setResponse(data.data.toString().trim());
     setLoading(false);
   };
+
+  const ref = useRef();
+  useEffect(() => {
+    autosize(ref.current as unknown as Element);
+    return () => {
+      autosize.destroy(ref.current as unknown as Element);
+    };
+  }, []);
 
   useEffect(() => {
     setPrompt("");
@@ -59,11 +69,11 @@ const PromptMain: React.FC<Props> = ({ type, options }) => {
       </Text>
       {response != "" && (
         <Flex>
-          <Text mr="1rem" fontFamily="highman" fontSize="2rem" color="black">
+          <Text mr="1rem" fontFamily="highman" fontSize="1.5rem" color="black">
             {prompt}
           </Text>
           <TbEdit
-            size="1.75rem"
+            size="1rem"
             style={{
               alignSelf: "center",
               cursor: "pointer",
@@ -109,6 +119,7 @@ const PromptMain: React.FC<Props> = ({ type, options }) => {
       </Text>
 
       <Textarea
+        ref={ref as unknown as React.LegacyRef<HTMLTextAreaElement>}
         placeholder={
           type == "comeback"
             ? "What did you get called?"
@@ -282,6 +293,7 @@ const PromptMain: React.FC<Props> = ({ type, options }) => {
               desc={option.desc}
               emoji={option.emoji}
               type={PromptType[option.type]}
+              loading={isLoading}
             />
           ))}
       </Wrap>
