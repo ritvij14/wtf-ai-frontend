@@ -62,7 +62,7 @@ const LandingDesc = () => {
       <Wrap spacing="3rem" px="10%" py="3rem">
         {options.map((option) => (
           <PromptCard
-            key={option.desc.length}
+            key={PromptType[option.type].length}
             color={`#${option.color}`}
             desc={option.desc}
             emoji={option.emoji}

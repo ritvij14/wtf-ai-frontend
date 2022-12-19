@@ -31,7 +31,7 @@ const PromptCard: React.FC<Props> = ({ emoji, type, desc, color }) => {
         transform: "scale(1.1)",
       }}
       onClick={() => {
-        router.push(`/prompt?type=${type}`);
+        router.replace(`/prompt?type=${type}`);
       }}
     >
       <Box
