@@ -29,26 +29,51 @@ const PromptMain: React.FC<Props> = ({ type }) => {
     setResponse("");
   }, [type]);
 
-  const options = [
+  var options = [
     {
-      color: "8AEC80",
-      desc: "I DON'T KNOW HOW TO GET BETTER AT LIFE, HELP A FRIEND OUT?",
-      emoji: "🥶",
-      type: PromptType.sucks,
+      color: "FFD503",
+      desc: "A perfect comeback for every A##h%e out there",
+      emoji: "🤬",
+      type: PromptType.comeback,
     },
     {
       color: "F78166",
-      desc: "WHAT IS THE BEST THING TO DO IF MY EX MESSAGES ME TODAY?",
+      desc: "Nothing helps better in life than a terrible advice",
       emoji: "🫤",
       type: PromptType.advice,
     },
     {
       color: "F480E5",
-      desc: "what's the meaning of “the vibe shift”? i don't get any of it.",
+      desc: 'Stop being a boomer and finally "GET" a joke!',
       emoji: "🧐",
       type: PromptType.joke,
     },
+    {
+      color: "8AEC80",
+      desc: "You suck at a lot of things, ever wondered why?",
+      emoji: "🥶",
+      type: PromptType.sucks,
+    },
+    {
+      color: "C4D4F8",
+      desc: "A perfect way to stop a BOOOOORING chat!",
+      emoji: "😶‍🌫️",
+      type: PromptType.endConversation,
+    },
+    {
+      color: "E3EC80",
+      desc: "HOW TO ASK SOMEONE TO F#@K OFF, POLITELY? IS IT EVEN POSSIBLE?!",
+      emoji: "😤",
+      type: PromptType.compliment,
+    },
   ];
+
+  options = options.filter((val) => PromptType[val.type] != type);
+  const option1 = options[Math.floor(Math.random() * options.length)];
+  options = options.filter((val) => val.type != option1.type);
+  const option2 = options[Math.floor(Math.random() * options.length)];
+  options = options.filter((val) => val.type != option2.type);
+  const option3 = options[Math.floor(Math.random() * options.length)];
 
   return (
     <Box
@@ -275,7 +300,7 @@ const PromptMain: React.FC<Props> = ({ type }) => {
         Try more
       </Text>
       <Wrap spacing="3rem" py="1.5rem" px="1.5rem">
-        {options.map((option) => (
+        {[option1, option2, option3].map((option) => (
           <PromptCard
             key={option.desc.length}
             color={`#${option.color}`}
