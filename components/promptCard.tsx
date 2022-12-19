@@ -50,9 +50,9 @@ const PromptCard: React.FC<Props> = ({ emoji, type, desc, color }) => {
             {type == PromptType.comeback && "COMEBACK"}
             {type == PromptType.advice && "TERRIBLE ADVICE"}
             {type == PromptType.joke && "EXPLAIN A JOKE"}
-            {type == PromptType.you_suck && "WHY DO YOU SUCK AT...?"}
-            {type == PromptType.end_convo && "HOW TO END A CONVERSATION"}
-            {type == PromptType.insult && "INSULT IN A COMPLIMENT"}
+            {type == PromptType.sucks && "WHY DO YOU SUCK AT...?"}
+            {type == PromptType.endConversation && "HOW TO END A CONVERSATION"}
+            {type == PromptType.compliment && "INSULT IN A COMPLIMENT"}
           </Text>
           <Text
             fontFamily="highman"

@@ -29,19 +29,19 @@ const LandingDesc = () => {
       color: "8AEC80",
       desc: "You suck at a lot of things, ever wondered why?",
       emoji: "🥶",
-      type: PromptType.you_suck,
+      type: PromptType.sucks,
     },
     {
       color: "C4D4F8",
       desc: "A perfect way to stop a BOOOOORING chat!",
       emoji: "😶‍🌫️",
-      type: PromptType.end_convo,
+      type: PromptType.endConversation,
     },
     {
       color: "E3EC80",
       desc: "HOW TO ASK SOMEONE TO F#@K OFF, POLITELY? IS IT EVEN POSSIBLE?!",
       emoji: "😤",
-      type: PromptType.insult,
+      type: PromptType.compliment,
     },
   ];
 

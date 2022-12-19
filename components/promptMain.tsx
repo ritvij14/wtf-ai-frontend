@@ -29,7 +29,7 @@ const PromptMain: React.FC<Props> = ({ type }) => {
       color: "8AEC80",
       desc: "I DON'T KNOW HOW TO GET BETTER AT LIFE, HELP A FRIEND OUT?",
       emoji: "🥶",
-      type: PromptType.you_suck,
+      type: PromptType.sucks,
     },
     {
       color: "F78166",
@@ -62,10 +62,10 @@ const PromptMain: React.FC<Props> = ({ type }) => {
         {type == PromptType[PromptType.comeback] && "COMEBACK"}
         {type == PromptType[PromptType.advice] && "TERRIBLE ADVICE"}
         {type == PromptType[PromptType.joke] && "EXPLAIN A JOKE"}
-        {type == PromptType[PromptType.you_suck] && "WHY DO YOU SUCK AT...?"}
-        {type == PromptType[PromptType.end_convo] &&
+        {type == PromptType[PromptType.sucks] && "WHY DO YOU SUCK AT...?"}
+        {type == PromptType[PromptType.endConversation] &&
           "HOW TO END A CONVERSATION"}
-        {type == PromptType[PromptType.insult] && "INSULT IN A COMPLIMENT"}
+        {type == PromptType[PromptType.compliment] && "INSULT IN A COMPLIMENT"}
       </Text>
       {response != "" && (
         <Flex>
@@ -104,21 +104,22 @@ const PromptMain: React.FC<Props> = ({ type }) => {
           (response == ""
             ? "you might be dumb but the ai is smart :)"
             : "Here is the explanation:")}
-        {type == PromptType[PromptType.you_suck] &&
+        {type == PromptType[PromptType.sucks] &&
           (response == ""
             ? "you just do man but everyone needs a closure."
             : "This is why you suck:")}
-        {type == PromptType[PromptType.end_convo] &&
+        {type == PromptType[PromptType.endConversation] &&
           (response == ""
             ? "please shut up...respectfully."
             : "Here is your response:")}
-        {type == PromptType[PromptType.insult] &&
+        {type == PromptType[PromptType.compliment] &&
           (response == ""
             ? "SAY IT WITH A SMILE BUT MEAN IT LIKE AN INSULT"
             : "Here is your compliment:")}
       </Text>
 
       <Textarea
+        placeholder="What do you need help with today..."
         borderWidth="3px"
         borderColor="black"
         onChange={(e) => {

@@ -2,9 +2,9 @@ enum PromptType {
   comeback,
   advice,
   joke,
-  you_suck,
-  end_convo,
-  insult,
+  sucks,
+  endConversation,
+  compliment,
 }
 
 export default PromptType;

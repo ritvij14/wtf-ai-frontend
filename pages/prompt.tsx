@@ -18,9 +18,9 @@ const PromptPage = () => {
           ? "#F78166"
           : data["type"] == "joke"
           ? "#F480E5"
-          : data["type"] == "you_suck"
+          : data["type"] == "sucks"
           ? "#8AEC80"
-          : data["type"] == "end_convo"
+          : data["type"] == "endConversation"
           ? "#C4D4F8"
           : "#E3EC80"
       }
