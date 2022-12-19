@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Text, Textarea, Wrap } from "@chakra-ui/react";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import PromptType from "../types";
@@ -23,6 +23,11 @@ const PromptMain: React.FC<Props> = ({ type }) => {
     setResponse(data.data.toString().trim());
     setLoading(false);
   };
+
+  useEffect(() => {
+    setPrompt("");
+    setResponse("");
+  }, [type]);
 
   const options = [
     {
@@ -123,11 +128,11 @@ const PromptMain: React.FC<Props> = ({ type }) => {
         borderWidth="3px"
         borderColor="black"
         onChange={(e) => {
-          setPrompt(e.target.value);
+          if (response == "") setPrompt(e.target.value);
         }}
         bg="white"
         value={response == "" ? prompt : response}
-        pointerEvents={response != "" ? "none" : "all"}
+        pointerEvents={response != "" ? "painted" : "all"}
       />
       <Button
         mt="1.625rem"
@@ -276,7 +281,7 @@ const PromptMain: React.FC<Props> = ({ type }) => {
             color={`#${option.color}`}
             desc={option.desc}
             emoji={option.emoji}
-            type={option.type}
+            type={PromptType[option.type]}
           />
         ))}
       </Wrap>

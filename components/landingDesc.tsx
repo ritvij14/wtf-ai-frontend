@@ -66,7 +66,7 @@ const LandingDesc = () => {
             color={`#${option.color}`}
             desc={option.desc}
             emoji={option.emoji}
-            type={option.type}
+            type={PromptType[option.type]}
           />
         ))}
       </Wrap>

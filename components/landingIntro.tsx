@@ -115,7 +115,7 @@ const LandingIntro = () => {
             color="#FFD503"
             desc="Throw your best insult at me, and be prepared to be destroyed."
             emoji="🤬"
-            type={PromptType.comeback}
+            type={PromptType[PromptType.comeback]}
           />
         </Box>
         <Box
@@ -127,7 +127,7 @@ const LandingIntro = () => {
             color="#F78166"
             desc="Can't stop texting my ex, what do I do?"
             emoji="🫤"
-            type={PromptType.advice}
+            type={PromptType[PromptType.advice]}
           />
         </Box>
         <Box
@@ -140,7 +140,7 @@ const LandingIntro = () => {
             color="#F480E5"
             desc="Feeling dumb for not getting a joke?"
             emoji="🧐"
-            type={PromptType.joke}
+            type={PromptType[PromptType.joke]}
           />
         </Box>
         <Box
