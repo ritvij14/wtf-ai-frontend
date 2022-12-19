@@ -149,7 +149,20 @@ const PromptMain: React.FC<Props> = ({ type }) => {
       </Text>
 
       <Textarea
-        placeholder="What do you need help with today..."
+        placeholder={"What do you need help with today..."}
+        // placeholder={
+        //   type == "comeback"
+        //     ? "#FFD503"
+        //     : type == "advice"
+        //     ? "#F78166"
+        //     : type == "joke"
+        //     ? "#F480E5"
+        //     : type == "sucks"
+        //     ? "#8AEC80"
+        //     : type == "endConversation"
+        //     ? "#C4D4F8"
+        //     : "#E3EC80"
+        // }
         borderWidth="3px"
         borderColor="black"
         onChange={(e) => {

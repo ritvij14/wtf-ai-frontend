@@ -153,9 +153,9 @@ const LandingIntro = () => {
           alignSelf="center"
         >
           <Marquee gradient={false} speed={100}>
-            Why always win, when you lose with AI? ✶ Why always win, when you
-            lose with AI? ✶ Why always win, when you lose with AI? ✶ Why always
-            win, when you lose with AI? ✶&nbsp;
+            Why always win, when you can lose with AI? ✶ Find the reason why you
+            suck so much ✶ Insult someone with a compliment ✶ Atleast the AI
+            will get the jokes ✶&nbsp;
           </Marquee>
         </Box>
       </Box>
