@@ -283,19 +283,16 @@ const PromptMain: React.FC<Props> = ({ type, options }) => {
         Try more
       </Text>
       <Wrap spacing="3rem" py="1.5rem" px="1.5rem">
-        {options
-          .reverse()
-          .slice(0, 3)
-          .map((option) => (
-            <PromptCard
-              key={PromptType[option.type].length}
-              color={`#${option.color}`}
-              desc={option.desc}
-              emoji={option.emoji}
-              type={PromptType[option.type]}
-              loading={isLoading}
-            />
-          ))}
+        {options.map((option) => (
+          <PromptCard
+            key={PromptType[option.type].length}
+            color={`#${option.color}`}
+            desc={option.desc}
+            emoji={option.emoji}
+            type={PromptType[option.type]}
+            loading={isLoading}
+          />
+        ))}
       </Wrap>
     </Box>
   );
