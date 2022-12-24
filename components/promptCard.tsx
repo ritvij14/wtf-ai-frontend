@@ -45,7 +45,7 @@ const PromptCard: React.FC<Props> = ({ emoji, type, desc, color, loading }) => {
             theme: "light",
           });
         } else {
-          router.replace(`/prompt?type=${type}`);
+          router.push(`/prompt?type=${type}`);
         }
       }}
     >

@@ -7,6 +7,7 @@ import PromptMain from "../components/promptMain";
 import PromptType from "../types";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 const PromptPage = () => {
   const router = useRouter();
@@ -76,6 +77,11 @@ const PromptPage = () => {
           : "#E3EC80"
       }
     >
+      <Head>
+        <title>wtf-ai</title>
+        <meta name="description" content="WTF AI" />
+        <link rel="icon" href="exploding_head.png" />
+      </Head>
       <PromptHeader />
       <ToastContainer />
       <PromptMain
