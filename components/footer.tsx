@@ -3,13 +3,15 @@ import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import { FaTwitter } from "react-icons/fa";
 import React from "react";
+import BuyMeACoffeeWidget from "./coffee";
 
 const Footer = () => {
   return (
     <Flex
       pt="3.125rem"
       pb="1.25rem"
-      px="9%"
+      pl="9%"
+      pr="2%"
       alignItems="center"
       flexDir={{ base: "column", sm: "row" }}
     >
@@ -40,6 +42,8 @@ const Footer = () => {
           </Text>
         </Flex>
       </a>
+      <Spacer />
+      <BuyMeACoffeeWidget />
     </Flex>
   );
 };
